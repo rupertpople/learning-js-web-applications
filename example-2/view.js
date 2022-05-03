@@ -11,6 +11,14 @@ class View {
     this.mainContainerEl.append(newElement);
     // console.log(body);
   }
+
+  clearParagraphs() {
+    let elementToRemove = document.querySelectorAll('p');
+    for (let i = 0; i < elementToRemove.length; i++){
+      elementToRemove[i].remove();
+    }
+      
+  }
 }
 
 module.exports = View;

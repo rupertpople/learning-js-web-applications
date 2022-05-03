@@ -13,4 +13,20 @@ describe('Page view', () => {
 
     expect(document.querySelectorAll('p').length).toBe(2);
   });
+
+  it('#addParagraph should add an extra paragraph', () => {
+    document.body.innerHTML = fs.readFileSync('./index.html');
+
+    const view = new View();
+    view.addParagraph();
+    expect(document.querySelectorAll('p').length).toBe(3);
+  })
+
+  it('#clearParagraphs should remove all paragraphs', () => {
+    document.body.innerHTML = fs.readFileSync('./index.html');
+
+    const view = new View();
+    view.clearParagraphs();
+    expect(document.querySelectorAll('p').length).toBe(0);
+  })
 });
