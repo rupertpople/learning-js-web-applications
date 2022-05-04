@@ -15,7 +15,6 @@ describe('MessageView', () => {
     const buttonEl = document.querySelector('#show-message-button');
     buttonEl.click();
     const message = document.querySelector('#message')
-    console.log(message.innerText)
 
     expect(message.innerText).toEqual('Type something here');
   });
