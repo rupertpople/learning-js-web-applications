@@ -10,10 +10,22 @@ describe('MessageView', () => {
     document.body.innerHTML = fs.readFileSync('./index.html');
 
     const view = new MessageView();
-
+    const messageInput = document.querySelector('#message-input')
+    messageInput.value = 'Type something here'
     const buttonEl = document.querySelector('#show-message-button');
     buttonEl.click();
+    const message = document.querySelector('#message')
+    console.log(message.innerText)
 
-    expect(document.querySelector('#message')).not.toBeNull();
+    expect(message.innerText).toEqual('Type something here');
   });
+  it('click hide message button removes the message on the page', () => {
+    document.body.innerHTML = fs.readFileSync('./index.html');
+    const view = new MessageView();
+    const buttonEl = document.querySelector('#show-message-button');
+    buttonEl.click();
+    const hidebuttonEl = document.querySelector('#hide-message-button');
+    hidebuttonEl.click();
+    expect(document.querySelector('#message')).toBeNull();
+  } )
 });
